@@ -13,6 +13,7 @@ export default function HomePage() {
     const [balances, setBalance] = useState([])
     const [total, setTotal] = useState("")
     const [color, setColor] = useState("")
+    const [user, setUser] = useState("")
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,8 +28,9 @@ export default function HomePage() {
 
             const tratarSucesso = (resposta) => {
                 console.log(resposta.data)
-                const dataArray = resposta.data
+                const dataArray = resposta.data.balance
                 setBalance(dataArray)
+                setUser(resposta.data.user)
             }
 
             const tratarErro = (resp) => {
@@ -109,7 +111,7 @@ export default function HomePage() {
 
         <MainStyled>
             <DivTitle>
-                <h1>{`Olá,${balances[0]?.user}`}</h1>
+                <h1>{`Olá,${user}`}</h1>
                 
                 <img onClick={LogOut} src={logout} />
                 
