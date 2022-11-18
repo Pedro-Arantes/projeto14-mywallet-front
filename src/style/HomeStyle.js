@@ -13,7 +13,7 @@ justify-content: center;
 
 
 `
-export const ArticleBalance = styled.article`
+export const ArticleBalanceEmpty = styled.article`
 width: 326px;
 height: 446px;
 background-color: white;
@@ -36,6 +36,21 @@ p{
 
     color: #868686;
 }
+
+`
+export const ArticleBalance = styled.article`
+width: 326px;
+height: 446px;
+background-color: white;
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-between;
+
+border-radius: 5px;
+
+padding: 15px;
 
 `
 export const DivTitle = styled.div`
@@ -91,4 +106,27 @@ p{
 a{
     text-decoration: none;
 }
+`
+export const TotalDiv = styled.div`
+font-size: 17px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+span{
+    
+    font-weight: 700;
+}
+p{
+    font-weight: 400;
+    color: ${props => props.cor};
+}
+
+`
+export const BalanceCollection = styled.div `
+
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 20px;
 `

@@ -1,23 +1,68 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from 'react';
+import { DataContext } from "../context/Auth";
 import { MainStyled, FormStyled, BtnStyle } from '../style/EntOutStyle';
 import axios from "axios";
 
 
 export default function OutputPage() {
 
+    const { data } = useContext(DataContext)
+    const [value, setValue] = useState("")
+    const [description, setDescr] = useState("")
+    const navigate = useNavigate();
+    const type = "negative"
+
+    const submit = (e) => {
+        SaveEntry();
+        e.preventDefault();
+        //navigate("/home")
+    }
+
+    const SaveEntry = () => {
+
+        const obj = {
+            value,
+            description,
+            type
+        }
+        const config = {
+            headers: {
+                Authorization: `Bearer ${data}`
+            }
+        }
+
+        const tratarSucesso = (resposta) => {
+            //console.log(resposta)  
+            navigate("/home")
+        }
+
+        const tratarErro = (resp) => {
+            //console.log(resp)
+            alert(resp.response.data.message)
+            navigate("/novaSaida")
+        }
+
+
+        const requisicao = axios.post('http://localhost:5000/balance', obj, config);
+        requisicao.then(tratarSucesso)
+        requisicao.catch(tratarErro)
+
+
+
+    }
     return (
 
         <MainStyled>
             <div>
                 <h1>Nova Saída</h1>
             </div>
-            <FormStyled>
-                <input required placeholder='Valor' type="email" />
-                <input required placeholder='Descrição' type="password" />
-                <Link to='/home'>
-                    <BtnStyle>Salvar saída</BtnStyle>
-                </Link>
+            <FormStyled onSubmit={submit}>
+                <input required placeholder='Valor' onChange={e => setValue(e.target.value)} value={value} type="text" />
+                <input required placeholder='Descrição' onChange={e => setDescr(e.target.value)} value={description} type="text" />
+               
+                <BtnStyle>Salvar saída</BtnStyle>
+             
             </FormStyled>
         </MainStyled>
     )

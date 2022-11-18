@@ -5,12 +5,11 @@ export const DataContext = createContext({})
 function DataProvider ({children}){
 
 const [data,setData] = useState("")
-const [img,setImg] = useState("")
-const [perc,setPerc] = useState(0)
+
 
 return(
 
-    <DataContext.Provider value={{data,setData,img,perc,setImg,setPerc}}>
+    <DataContext.Provider value={{data,setData}}>
         {children}
     </DataContext.Provider>
 )
