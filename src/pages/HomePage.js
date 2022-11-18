@@ -69,6 +69,7 @@ export default function HomePage() {
             }else{
                 setColor("red")
             }
+            tot = tot.toFixed(2).toString().replace(".",",")
             setTotal(tot)
         }, 1000);
         return () => clearInterval(interval);

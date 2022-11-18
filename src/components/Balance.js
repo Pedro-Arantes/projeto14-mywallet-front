@@ -11,7 +11,7 @@ export default function Balance({ item }) {
                         <span>{day}</span>
                         <p>{description}</p>
                     </DtDescrDiv>
-                    <ValueDiv cor = {cor}>{value}</ValueDiv>
+                    <ValueDiv cor = {cor}>{Number(value).toFixed(2).toString().replace(".",",")}</ValueDiv>
             </BalanceDiv>
         </>
 

@@ -57,13 +57,13 @@ export default function RegisterPage() {
         <MainStyled>
             <h1>MyWallet</h1>
             <FormStyled onSubmit={submit}>
-                <input required placeholder='Nome' onChange={e => setName(e.target.value)} disabled={status} value={name} type="text" />
+                <input required placeholder='Nome' onChange={e => setName(e.target.value)} disabled={status} value={name} type="text" minLength="3" />
 
-                <input required placeholder='E-mail' onChange={e => setEmail(e.target.value)} value={email} disabled={status} type="email" />
+                <input required placeholder='E-mail' onChange={e => setEmail(e.target.value)} value={email} disabled={status} type="email" maxLength="25" minLength="11" />
 
-                <input required placeholder='Senha' onChange={e => setSenha(e.target.value)} disabled={status} value={senha} type="password" />
+                <input required placeholder='Senha' onChange={e => setSenha(e.target.value)} disabled={status} value={senha} type="password" maxLength="25" minLength="3"/>
 
-                <input required  onChange={e => setConf(e.target.value)} disabled={status} value={senhaConf} placeholder='Confirme a senha' type="password" />
+                <input required  onChange={e => setConf(e.target.value)} disabled={status} value={senhaConf} placeholder='Confirme a senha' type="password" maxLength="25" minLength="3"/>
 
                 <BtnStyle >Cadastrar</BtnStyle>
             </FormStyled>

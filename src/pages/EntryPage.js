@@ -59,8 +59,8 @@ export default function EntryPage() {
                 <h1>Nova Entrada</h1>
             </div>
             <FormStyled onSubmit={submit}>
-                <input required placeholder='Valor' onChange={e => setValue(e.target.value)} value={value} type="text" />
-                <input required placeholder='Descrição' onChange={e => setDescr(e.target.value)} value={description} type="text" />
+                <input required placeholder='Valor' onChange={e => setValue(e.target.value)} value={value} type="number" minLength= "1" />
+                <input required placeholder='Descrição' onChange={e => setDescr(e.target.value)} maxLength="16" minLength= "3" value={description} type="text" />
 
                 <BtnStyle>Salvar entrada</BtnStyle>
 
