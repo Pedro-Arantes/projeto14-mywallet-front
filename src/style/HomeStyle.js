@@ -51,6 +51,7 @@ justify-content: space-between;
 border-radius: 5px;
 
 padding: 15px;
+overflow-y: auto;
 
 `
 export const DivTitle = styled.div`
