@@ -19,7 +19,7 @@ export default function HomePage() {
     useEffect(() => {
         const GetBalance = () => {
 
-            console.log(data)
+            
             const config = {
                 headers: {
                     Authorization: `Bearer ${data}`
@@ -27,7 +27,7 @@ export default function HomePage() {
             }
 
             const tratarSucesso = (resposta) => {
-                console.log(resposta.data)
+               
                 const dataArray = resposta.data.balance
                 setBalance(dataArray)
                 setUser(resposta.data.user)
@@ -49,7 +49,7 @@ export default function HomePage() {
         
         GetBalance()
 
-    }, [data])
+    }, [data,navigate])
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -75,7 +75,7 @@ export default function HomePage() {
             setTotal(tot)
         }, 1000);
         return () => clearInterval(interval);
-      }, [total]);
+      }, [total,balances]);
 
     
     const LogOut= () => {
@@ -113,7 +113,7 @@ export default function HomePage() {
             <DivTitle>
                 <h1>{`Olá,${user}`}</h1>
                 
-                <img onClick={LogOut} src={logout} />
+                <img alt="imgLogout" onClick={LogOut} src={logout} />
                 
             </DivTitle>
 

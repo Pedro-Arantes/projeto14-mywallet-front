@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useContext } from 'react';
 import { DataContext } from "../context/Auth";
 import { MainStyled, FormStyled, BtnStyle } from '../style/EntOutStyle';
@@ -60,7 +60,7 @@ export default function EntryPage() {
             </div>
             <FormStyled onSubmit={submit}>
                 <input required placeholder='Valor' onChange={e => setValue(e.target.value)} value={value} type="number" minLength= "1" />
-                <input required placeholder='Descrição' onChange={e => setDescr(e.target.value)} maxLength="16" minLength= "3" value={description} type="text" />
+                <input required placeholder='Descrição' onChange={e => setDescr(e.target.value)} maxLength="30" minLength= "3" value={description} type="text" />
 
                 <BtnStyle>Salvar entrada</BtnStyle>
 

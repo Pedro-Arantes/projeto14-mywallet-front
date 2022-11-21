@@ -28,7 +28,7 @@ export default function LoginPage() {
         const tratarSucesso = (resposta) => {
 
             const token = resposta.data
-            console.log(resposta)
+            
             setData(token)
             
             navigate("/home")

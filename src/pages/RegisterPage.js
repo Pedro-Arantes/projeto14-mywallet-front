@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import axios from "axios";
 import { MainStyled, FormStyled, BtnStyle } from '../style/LogCadStyle';
 
@@ -28,7 +28,7 @@ export default function RegisterPage() {
             }
     
             const tratarSucesso = (resposta) => {
-                console.log(resposta)
+                
     
                 navigate("/")
     
@@ -37,6 +37,10 @@ export default function RegisterPage() {
                 console.log(resp)
                 alert(resp.response.data)
                 setStatus(false)
+                setEmail("")
+                setName('')
+                setSenha('')
+                setConf('')
             }
     
     
