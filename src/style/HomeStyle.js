@@ -119,7 +119,6 @@ span{
     font-weight: 700;
 }
 p{
-    font-weight: 400;
     color: ${props => props.cor};
 }
 
